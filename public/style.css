@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd500, #ffcc00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.snap-logo {
+    width: 60px;
+    height: auto;
+}
+
+
+a:hover{
+
+    color: rgb(46, 128, 215);
+    
+}
+.container {
+    background: #fffdf6;
+    width: 420px;
+    padding: 45px 50px;
+    border-radius: 18px;
+    box-shadow: 0 35px 60px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.subtext {
+    color: #444;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    background: white;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(180deg, #000, #111);
+    color: #ffd500;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.small-text {
+    margin-top: 20px;
+    color: #666;
+}

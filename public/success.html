@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/style.css">
+
+<div class="container">
+
+    
+    <h1>User Verified</h1>
+    <div class="subtext">Welcome to SnapText</div>
+    <div id="userDisplay" style="font-weight:bold; margin-top:10px;"></div>
+
+<button onclick="window.location.href='/'">Home</button>
+<button onclick="window.location.href='/login.html'" style="margin-top:10px;background:white;color:black;border:1px solid #ddd;">Logout</button>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const user = params.get("user");
+if(user){
+    document.getElementById("userDisplay").innerText = "Verified user: " + user;
+}
+</script>
+
+
+
+    <!-- <button onclick="window.location.href='/'">Home</button> -->
+</div>
+
+<p id="userDisplay"></p>
+
+<script>
+fetch("/user")
+  .then(res => res.json())
+  .then(data => {
+    if(data.user){
+      document.getElementById("userDisplay").innerText = "Verified user: " + data.user;
+    }
+  });
+</script>
+
+<!-- app.get("/user", (req, res) => {
+    res.json({ user: req.session.user || null });
+}); -->
+
