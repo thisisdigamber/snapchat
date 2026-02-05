@@ -86,3 +86,18 @@ button:hover {
     margin-top: 20px;
     color: #666;
 }
+
+
+.verify-badge {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    background: #e6f9ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #1db954;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
