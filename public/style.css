@@ -29,14 +29,30 @@ a:hover{
     color: rgb(46, 128, 215);
     
 }
-.container {
+/* .container {
     background: #fffdf6;
     width: 420px;
     padding: 45px 50px;
     border-radius: 18px;
     box-shadow: 0 35px 60px rgba(0,0,0,0.25);
     text-align: center;
+} */
+
+.container {
+    background: #fffdf6;
+    width: 100%;
+    max-width: 420px;
+    min-height: 520px;
+    padding: 28px 24px;
+    border-radius: 18px;
+    box-shadow: 0 35px 60px rgba(0,0,0,0.25);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
 h1 {
     font-size: 36px;
@@ -102,6 +118,21 @@ button:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
+/* .verify-badge {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+} */
+
+@media (max-width: 480px) {
+    .verify-badge {
+        width: 90px;
+        height: 90px;
+        font-size: 40px;
+    }
+}
+
+
 
 .success-title {
     font-size: 34px;
@@ -137,3 +168,28 @@ button:hover {
     font-weight: 700;
     color: #111;
 }
+
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        border-radius: 22px;
+        padding: 32px 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .success-title {
+        font-size: 30px;
+    }
+
+    .user-name {
+        font-size: 18px;
+    }
+}
+
