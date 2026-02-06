@@ -2,7 +2,7 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
-
+/* 
 body {
     margin: 0;
     height: 100vh;
@@ -10,7 +10,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ffeb00 0%, #ffeb00 35%, #ffffff 35%);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
 }
+
 
 .logo-wrapper {
     display: flex;
@@ -38,7 +48,7 @@ a:hover{
     text-align: center;
 } */
 
-.container {
+/* .container {
     background: #fffdf6;
     width: 100%;
     max-width: 420px;
@@ -51,7 +61,23 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
+} */
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border-radius: 28px 28px 0 0;
+    padding: 36px 24px;
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
 }
+
 
 
 h1 {
@@ -192,4 +218,32 @@ button:hover {
         font-size: 18px;
     }
 }
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.success-title {
+    font-size: 30px;
+}
+
+.success-sub {
+    font-size: 15px;
+    color: #666;
+}
+
+button {
+    padding: 16px;
+    font-size: 17px;
+    border-radius: 14px;
+    margin-top: 18px;
+}
+
+.verified-user-box {
+    margin-top: 24px;
+    padding: 20px;
+}
+
 
