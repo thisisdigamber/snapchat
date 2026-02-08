@@ -205,3 +205,53 @@ a:hover {
         font-size: 36px;
     }
 }
+
+/* ===== Verification Popup ===== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.verify-modal {
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 16px;
+    text-align: center;
+    width: min(90%, 360px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    animation: popIn 0.15s ease-out;
+}
+
+.verify-modal h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.verify-modal p {
+    font-size: 15px;
+    color: #363535;
+}
+
+/* Hidden state */
+.hidden {
+    display: none;
+}
+
+/* Subtle animation */
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+

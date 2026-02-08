@@ -1,58 +1,91 @@
-<link rel="stylesheet" href="/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account Verified</title>
 
-<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- REQUIRED for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/style.css">
 </head>
 
-<div class="container ">
+<body>
 
-  <div class="verify-badge">
-  ✔
-</div>
+  <!-- Verification Popup -->
+  <div id="verifyOverlay" class="overlay hidden">
+    <div class="verify-modal">
+      <h2>Account Verified</h2>
+      <p id="verifyMessage"></p>
+    </div>
+  </div>
 
+  <!-- Main Container -->
+  <div class="container">
 
-    
-    <!-- <h1>User Verified</h1>
-    <div class="subtext">Welcome to SnapText</div>
-    <div id="userDisplay" style="font-weight:bold; margin-top:10px;"></div> -->
+    <div class="verify-badge">✔</div>
 
     <h1 class="success-title">Account Verified</h1>
-<p class="success-sub">Authentication successful</p>
+    <p class="success-sub">Authentication successful</p>
 
-<div class="verified-user-box">
-  <span class="label">Verified account</span>
-  <span id="userDisplay" class="user-name"></span>
-</div>
+    <div class="verified-user-box">
+      <span class="label">Verified account</span>
+      <span id="userDisplay" class="user-name"></span>
+    </div>
 
+    <button onclick="window.location.href='/'">Home</button>
 
-<button onclick="window.location.href='/'">Home</button>
-<button onclick="window.location.href='/login.html'" style="margin-top:10px;background:white;color:black;border:1px solid #ddd;">Logout</button>
+    <button
+      onclick="window.location.href='/login.html'"
+      style="margin-top:10px;background:white;color:black;border:1px solid #ddd;">
+      Logout
+    </button>
 
-<script>
-const params = new URLSearchParams(window.location.search);
-const user = params.get("user");
-if(user){
-    document.getElementById("userDisplay").innerText = "Verified user: " + user;
-}
-</script>
+  </div>
 
+  <!-- LOGIC: fetch user ONCE, then show popup -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("verifyOverlay");
+      const message = document.getElementById("verifyMessage");
+      const userDisplay = document.getElementById("userDisplay");
 
+      fetch("/user")
+        .then(res => res.json())
+        .then(data => {
+          if (!data.user) return;
 
-    <!-- <button onclick="window.location.href='/'">Home</button> -->
-</div>
+          // Show username on page
+          userDisplay.textContent = data.user;
 
-<p id="userDisplay"></p>
+          // Popup message
+           message.innerHTML =
+      "Your account has been verified successfully.<br>" +
+      "<span style='font-size:13px;color:#666;'>" +
+      "Signed in as: " + data.user +
+      "</span>";
 
-<script>
-fetch("/user")
-  .then(res => res.json())
-  .then(data => {
-    if(data.user){
-      document.getElementById("userDisplay").innerText = "Verified user: " + data.user;
-    }
-  });
-</script>
+          // Show popup
+          overlay.classList.remove("hidden");
 
-<!-- app.get("/user", (req, res) => {
-    res.json({ user: req.session.user || null });
-}); -->
+          // Auto close after 2.5 seconds
+          const autoClose = setTimeout(closePopup, 2500);
 
+          // Close on click outside
+          overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+              clearTimeout(autoClose);
+              closePopup();
+            }
+          });
+        });
+
+      function closePopup() {
+        overlay.classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>
